@@ -13,7 +13,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bas
 wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bash/main/Cloudflare-DDNS/cf-v4orv6-ddns.sh
 ```
 授权脚本并执行
-chmod +x cf-v4-ddns.sh \n
+chmod +x cf-v4-ddns.sh 
 ./cf-v4-ddns.sh
 
 如果脚本相关信息填写正确，输出内容会显示当前母鸡IP，登录 Cloudflare DNS选项 查看之前设置的 1.1.1.1 已变为母鸡IP
