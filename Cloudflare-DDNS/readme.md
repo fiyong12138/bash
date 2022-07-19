@@ -8,7 +8,7 @@
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bash/main/Cloudflare-DDNS/cf-v4-ddns.sh
 ```
-下载ipv4或ipv6脚本(每个脚本仅可更新一个域名，但可同时运行多个脚本)
+下载ipv4或ipv6脚本(每个脚本仅可更新一个二级域名，但可同时运行多个脚本)
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bash/main/Cloudflare-DDNS/cf-v4orv6-ddns.sh
 ```
