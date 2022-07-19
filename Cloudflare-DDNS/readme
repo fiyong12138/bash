@@ -1,3 +1,9 @@
+获取CFKEY
+打开网页：https://dash.cloudflare.com/profile
+在页面下方找到【Global API Key】
+设置用于 DDNS 解析的二级域名
+在 Cloudflare 中新建一个A记录，如：ddns.yourdomain.com，指向 1.1.1.1
+
 下载仅ipv4脚本
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bash/main/Cloudflare-DDNS/cf-v4-ddns.sh
@@ -6,7 +12,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bas
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/fiyong12138/bash/main/Cloudflare-DDNS/cf-v4orv6-ddns.sh
 ```
-脚本授权并执行
+授权脚本并执行
 chmod +x cf-v4-ddns.sh
 ./cf-v4-ddns.sh
 
