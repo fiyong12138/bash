@@ -2,55 +2,23 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-
-# Automatically update your CloudFlare DNS record to the IP, Dynamic DNS
-# Can retrieve cloudflare Domain id and list zone's, because, lazy
-
-# Place at:
-# curl https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-ddns.sh && chmod +x /usr/local/bin/cf-ddns.sh
-# run `crontab -e` and add next line:
-# */1 * * * * /usr/local/bin/cf-ddns.sh >/dev/null 2>&1
-# or you need log:
-# */1 * * * * /usr/local/bin/cf-ddns.sh >> /var/log/cf-ddns.log 2>&1
-
-
-# Usage:
-# cf-ddns.sh -k cloudflare-api-key \
-#            -u user@example.com \
-#            -h host.example.com \     # fqdn of the record you want to update
-#            -z example.com \          # will show you all zones if forgot, but you need this
-#            -t A|AAAA                 # specify ipv4/ipv6, default: ipv4
-
-# Optional flags:
-#            -f false|true \           # force dns update, disregard local stored ip
-
-# default config
-
-# API key, see https://www.cloudflare.com/a/account/my-account,
-# incorrect api-key results in E_UNAUTH error
+#获取的CFKEY(【Global API Key】)
 CFKEY=
-
-# Username, eg: user@example.com
+#登陆CF的Username, eg: user@example.com(即CF的登录邮箱)
 CFUSER=
-
-# Zone name, eg: example.com
+#输入你需要解析用来DDNS解析的根域名 eg: example.com，比如我的域名是123.com，那么此处填写123.com
 CFZONE_NAME=
-
-# Hostname to update, eg: homeserver.example.com
+#填写用来DDNS解析的二级域名，与上面设置的要一致, eg: ddns.yourdomain.com（例 ddns.123.com）
 CFRECORD_NAME=
 
-# Record type, A(IPv4)|AAAA(IPv6), default IPv4
 CFRECORD_TYPE=A
 
-# Cloudflare TTL for record, between 120 and 86400 seconds
 CFTTL=120
 
-# Ignore local file, update ip anyway
 FORCE=false
-
 WANIPSITE="http://ipv4.icanhazip.com"
 
-# Site to retrieve WAN ip, other examples are: bot.whatismyipaddress.com, https://api.ipify.org/ ...
+
 if [ "$CFRECORD_TYPE" = "A" ]; then
   :
 elif [ "$CFRECORD_TYPE" = "AAAA" ]; then
