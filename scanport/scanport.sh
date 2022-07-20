@@ -1,7 +1,6 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
-ports=(80)
-for port in ${ports[@]};
+for port in 80 8080
 do
     port_status=$(nmap baidu.com -p $port|sed -n "6p"|grep open|wc -l)
     if [ $port_status -lt 1 ]
