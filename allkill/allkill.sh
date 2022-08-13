@@ -19,4 +19,7 @@ if [ $? -eq 0 ];then
 else
     echo "kill $input1 fail"
 fi
+<<<<<<< HEAD
  ps -ef | grep python | grep -v grep | awk '{print $2}' | xargs kill -9
+=======
+>>>>>>> 0be35ad8a74bede1e42e361806107b79dbc06f22
